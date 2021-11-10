@@ -66,12 +66,12 @@ async function run () {
 
         app.put('/updateOrder/:id' , async(req , res) => {
             const id = req.params.id;
-            const updatedBooking = req.body;
+            const updateOrder = req.body;
             const query = {_id:ObjectId(id)};
             const options = { upsert : true}
             const updatedDoc = {
                 $set: {  
-                  status:updatedBooking.status
+                  status:updateOrder.status
                 },
             };
             const result =await orderCollection.updateOne(query,updatedDoc,options)
@@ -136,7 +136,7 @@ async function run () {
             const result = await reviewCollection.insertOne(review)
             res.json(result)
         })
-        
+
         console.log('Database is connected')
 
     }finally{
