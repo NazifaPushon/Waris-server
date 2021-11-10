@@ -24,6 +24,7 @@ async function run () {
         const productsCollection = database.collection('products')
         const usersCollection = database.collection('users')
         const orderCollection = database.collection('order')
+        const reviewCollection = database.collection('review')
 
         app.get('/products' , async(req , res) => {
             const result = await productsCollection.find({}).toArray()
@@ -125,6 +126,17 @@ async function run () {
             res.json(result)
         })
 
+        app.get('/review' , async(req, res) => {
+            const result = await reviewCollection.find({}).toArray()
+            res.json(result)
+        })
+
+        app.post('/review' , async(req , res) => {
+            const review = req.body ;
+            const result = await reviewCollection.insertOne(review)
+            res.json(result)
+        })
+        
         console.log('Database is connected')
 
     }finally{
