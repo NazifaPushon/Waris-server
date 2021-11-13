@@ -4,13 +4,14 @@ This is a fullstack website about watch [waris.com](https://assignment-12-f5229.
 
 This is a niche product (watch) related website . Here a user can buy a watch , leave a review and cancel the order . This is a fullstack website with dashboard system .
 
-> About my website -
+> About my database setup -
 
-- This is a full stuck website build on react and express js
-- For ui I used material ui and bootstarp and custom css
+- For products , I used a different collection and I used get for getting data from client , post for add a new product and delete for deleting a product.
 
-* Once a user logged in he/she can buy watch . The user can see all his orders leave a review in dashboard
-* Users review is show up in the home page dynamicly
-* An Admin can view all the orders ,delete any order and undate the status of the order
-* An admin can alse add a new product and the product will be shown in explore page
-* Admin can also delete any product
+* For orders , I used get to get all orders for admin , get by single email for a user , delete for users and admin ,status update for admin
+
+- For reviews , I used get for getting all data and show in home page , post for creating a review
+
+* For handling users and check if it is admin , I postd to database about user when he regestered and used update and upsert when user use google sign in method
+
+- For admin I check role of the user , and only an admin can make others admin . And admin can add a product delete a product , update users order status and delete a order
